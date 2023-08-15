@@ -54,7 +54,7 @@ for root, _, files in os.walk('.'):
             input_file_path = os.path.join(root, input_file)
             output_file_dir = os.path.join(output_directory, os.path.relpath(root, '.'))  # Preserve folder structure
             os.makedirs(output_file_dir, exist_ok=True)
-            output_file = os.path.join(output_file_dir, os.path.splitext(input_file)[0] + f"_{output_resolution}.mp4")
+            output_file = os.path.join(output_file_dir, os.path.splitext(input_file)[0] + f".mp4")
             total_frames = int(subprocess.check_output(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=nb_frames", "-of", "default=nokey=1:noprint_wrappers=1", input_file_path], universal_newlines=True))
             convert_video(input_file_path, output_file, output_resolution)
 

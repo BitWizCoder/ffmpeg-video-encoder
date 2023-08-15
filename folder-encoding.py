@@ -24,12 +24,14 @@ def convert_video(input_file, output_file, output_resolution):
     print(f"\rConverting: {input_file} - 100% done")
 
 
+
 # Get the current directory name
 current_directory_name = os.path.basename(os.getcwd())
 
-# Create a directory with the current directory's name for the converted videos
-output_directory = f"{current_directory_name}"
+# Create a directory with the current directory's name within Downloads
+output_directory = os.path.join(r"C:\Users\Admin\Downloads", current_directory_name)
 os.makedirs(output_directory, exist_ok=True)
+
 
 # Ask the user for the desired output resolution
 output_resolution = input("Select output resolution (480p, 720p, 1080p): ").strip().lower()
